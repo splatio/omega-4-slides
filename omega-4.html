@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>reveal.js - The HTML Presentation Framework</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <h2>Omega 4</h2>
+                <img src="images/omega-logo.png" />
+            </section>
+            <section>
+                <h2>Matt Smith</h2>
+                <h3>Omega 4 Co-Maintainer</h3>
+                <h4>twitter: <a href="http://twitter.com/splatio_">@splatio_</a></h4>
+                <h4>drupal.org: <a href="http://drupal.org/user/1012210">splatio</a></h4>
+            </section>
+            <section>
+                <img src="images/cti-digital-logo.png" />
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Omega 3</h2>
+                <ul>
+                    <li class="fragment">UI is used to configure layouts</li>
+                    <li class="fragment">HTML5 or XHTML starterkits</li>
+                    <li class="fragment">Predefined breakpoints and stylesheets</li>
+                    <li class="fragment">Dependency on Omega Tools module</li>
+                    <li class="fragment">Delta and Context reccomended</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Omega 4</h2>
+                <ul>
+                    <li class="fragment">Layouts are defined in code</li>
+                    <li class="fragment">HTML5 out of the box</li>
+                    <li class="fragment">No predefined breakpoints and or stylesheets</li>
+                    <li class="fragment">Removed the dependency on Omega Tools</li>
+                    <li class="fragment">Delta no longer needed or reccomended</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Core CSS Cleanup</h2>
+            </section>
+            <section>
+                <h3>SMACSS Modules (Components)</h3>
+            </section>
+            <section>
+                <h3>Easier to Override</h3>
+            </section>
+            <section>
+                <h3>Split up Stylesheets</h3>
+            </section>
+        </section>
+        <section>
+            <h2>Omega Extentions</h2>
+        </section>
+        <section>
+            <section>
+                <h2>Layouts Extention</h2>
+                <h5>Page Template Managment</h5>
+            </section>
+            <section>
+                <h3>How are Layouts Defined?</h3>
+            </section>
+            <section>
+                <h3>Example</h3>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Development Extention</h2>
+                <h5>Theming Powertools</h5>
+            </section>
+            <section>
+                <h3>Development Extention</h3>
+                <ul>
+                    <li>Rebuild theme registry</li>
+                    <li>Rebuild CSS and JS aggregates</li>
+                    <li>Browser width indicator</li>
+                    <li>Livereload</li>
+                    <li>Region demo</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Compatability Extention</h2>
+            </section>
+            <section>
+                <h3>Compatability Extention</h3>
+                <ul>
+                    <li>Conditional &gt;html&lt; classes</li>
+                    <li>Customisible viewport metatag</li>
+                    <li>Chromeframe</li>
+                    <li>Livereload</li>
+                    <li>Region demo</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Assets Extention</h2>
+            </section>
+            <section>
+                <h3>Assets Extention</h3>
+                <ul>
+                    <li>Move JS files to the footer</li>
+                    <li>Exclude JS files</li>
+                    <li>Exclude CSS files</li>
+                    <li>Polyfills</li>
+                    <li>Goodies: Discardable Messages</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Example</h3>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Autoloaded Preprocess, Process and Theme Functions</h2>
+                <h5>Take control of template.php</h5>
+            </section>
+            <section>
+                <h3>Adding a Preprocess Function</h3>
+                <ol>
+                    <li>Create [function-name].[type].inc file in preprocess folder</li>
+                    <li>Add preprocess function to the newly created inc file, using the normal naming conventions.</li>
+                    <li>Behold a clean, managable template.php file</li>
+                </ol>
+            </section>
+            <section>
+                <h3>Example 1: hook_preprocess_block()</h3>
+            </section>
+            <section>
+                <h3>Example 2: theme_button()</h3>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Drush Integration</h2>
+            </section>
+            <section>
+                <h3>omega-wizard</h3>
+            </section>
+            <section>
+                <h3>omega-guard</h3>
+            </section>
+            <section>
+                <h3>omega-export & omega-revert</h3>
+            </section>
+        </section>
+        <section>
+            <h2>What's next for Omega 4?</h2>
+            <ul>
+                <li><strong>Thorough documentation</strong></li>
+                <li>Panels Integration</li>
+                <li>Ohm demonstration subtheme</li>
+                <li>Further clean up contrib module markup and CSS (Views, Panels, etc.)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Questions?</h2>
+        </section>
+   </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+    Reveal.initialize({
+        controls:true,
+        progress:true,
+        history:true,
+        center:true,
+
+        theme:'custom', // available themes are in /css/theme
+        transition:Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies:[
+            { src:'lib/js/classList.js', condition:function () {
+                return !document.body.classList;
+            } },
+            { src:'plugin/markdown/marked.js', condition:function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src:'plugin/markdown/markdown.js', condition:function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src:'plugin/highlight/highlight.js', async:true, callback:function () {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src:'plugin/zoom-js/zoom.js', async:true, condition:function () {
+                return !!document.body.classList;
+            } },
+            { src:'plugin/notes/notes.js', async:true, condition:function () {
+                return !!document.body.classList;
+            } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
