@@ -61,13 +61,13 @@ body {
  *********************************************/
 .reveal a:not(.image) {
   color: #268bd2;
-  text-decoration: none;
   line-height: inherit;
-  -webkit-transition: color .15s ease;
-  -moz-transition: color .15s ease;
-  -ms-transition: color .15s ease;
-  -o-transition: color .15s ease;
-  transition: color .15s ease; }
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  -ms-transition: color 0.15s ease;
+  -o-transition: color 0.15s ease;
+  transition: color 0.15s ease; }
 
 .reveal a:not(.image):hover {
   color: #78b9e6;
