@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Omega 4</title>
+    <meta name="description" content="mega, one of the most popular contributed themes has had a facelift, and it’s almost unrecognisable! Omega 4 has done away with the UI and instead, focuses on providing a framework aimed at themers who want full control over the theme through code. This presentation will demonstrate these new features along with real life examples of how you can use them to build highly customised themes. We’ll also take a look at the future of Omega 4 and the roadmap to a full release.">
+    <meta name="author" content="Matt Smith">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + ( window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <h2>Omega 4</h2>
+                <img src="images/omega-logo.png" />
+            </section>
+            <section>
+                <h2>Matt Smith</h2>
+                <h3>Omega 4 Co-Maintainer</h3>
+                <br />
+                <h4>twitter: <a href="http://twitter.com/splatio_">@splatio_</a></h4>
+                <h4>drupal.org: <a href="http://drupal.org/user/1012210">splatio</a></h4>
+                <aside class="notes">
+                    <ul>
+                        <li>Drupal Developer - Frontend and Backend</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <img src="images/cti-digital-logo.png" />
+                <aside class="notes">
+                    <ul>
+                        <li>Manchester</li>
+                        <li>Large enterprise Drupal projects.</li>
+                        <li>Use Omega 4 on many production sites.</li>
+                    </ul>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <h2>Sass & Compass</h2>
+            <br />
+            <ul>
+                <li class="fragment">SCSS vs. Indented Syntax</li>
+                <li class="fragment">Partials</li>
+                <li class="fragment">Compass</li>
+                <li class="fragment">Compass Extensions</li>
+                <li class="fragment"><code>config.rb</code> and <code>compass watch</code></li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li class="fragment">Superset of CSS</li>
+                    <li class="fragment">Mixins, functions, variables and nesting.</li>
+                    <li class="fragment">Susy, Singualrity, Breakpoint, Globbing, Toolkit</li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <h2>SMACSS</h2>
+            <br />
+            <ul>
+                <li class="fragment">Base Styles</li>
+                <li class="fragment">Layout</li>
+                <li class="fragment">Modules/Components</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Work least specific to most specific.</li>
+                    <li>Drupal Styleguide module.</li>
+                    <li>Components should be encapsulated - work anywhere in their own right.</li>
+                    <li>Subcomponent, modifiers.</li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <h2>BEM</h2>
+                <br />
+                <pre><code class="css">
+    /* Component */
+    .component {}
+
+    /* Sub-component */
+    .component__sub-component {}
+
+    /* Modifier */
+    .component--modifier {}
+                </code></pre>
+        </section>
+        <section>
+            <section>
+                <h2>Omega 3</h2>
+                <br />
+                <ul>
+                    <li class="fragment">UI is used to configure layouts</li>
+                    <li class="fragment">HTML5 or XHTML starterkits</li>
+                    <li class="fragment">Predefined breakpoints and stylesheets</li>
+                    <li class="fragment">Dependency on Omega Tools module</li>
+                    <li class="fragment">Delta and Context recommended</li>
+                </ul>
+                <aside class="notes">
+                    <ul>
+                        <li>Who has used Omega 3?</li>
+                        <li>Very different from Omega 4</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <h2>Omega 4</h2>
+                <br />
+                <ul>
+                    <li class="fragment">Layouts are defined in code</li>
+                    <li class="fragment">HTML5 out of the box</li>
+                    <li class="fragment">No predefined breakpoints and or stylesheets</li>
+                    <li class="fragment">Removed the dependency on Omega Tools</li>
+                    <li class="fragment">Delta no longer needed or recommended</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Core CSS Cleanup</h2>
+            </section>
+            <section>
+                <h3>Easier to Override</h3>
+                <br />
+                <pre><code class="css">
+    /* Reduced relience on specific HTML structure */
+    table.system-status-report tr.merge-up td {}
+    .merge-up td {}
+    /* Removed over specified selectors */
+    #blocks tr.region-message {}
+    .blocks-admin .region-message {}
+    /* Reduced qualified selectors */
+    div.contextual-links-wrapper {}
+    .contextual-links-wrapper {}
+                </code></pre>
+            </section>
+            <section>
+                <h3>Split up Stylesheets</h3>
+                <br />
+                <pre><code class="bash">
+    user.css            user.base.css  # Base functional styles.
+                        user.theme.css # Stylistic assumptions.
+                        user.admin.css # Administration styles.
+                </code></pre>
+            </section>
+            <section>
+                <h3>SMACSS Modules (Components)</h3>
+                <pre class="squeeze"><code class="bash">
+    poll/
+        poll.admin.scss
+        poll.theme-rtl.scss
+        poll.theme.scss
+    search/
+        search.theme-rtl.scss
+        search.theme.scss
+    system/
+        admin/
+        autocomplete/
+            _autocomplete.base-rtl.scss
+            _autocomplete.base.scss
+            _autocomplete.theme.scss
+        collapsible/
+            _collapsible.base.scss
+            _collapsible.theme-rtl.scss
+            _collapsible.theme.scss
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <h2>Omega Extensions</h2>
+        </section>
+        <section>
+            <section>
+                <h2>Layouts Extention</h2>
+                <h5>Page Template Managment</h5>
+            </section>
+            <section>
+                <h3>How are Layouts Defined?</h3>
+                <br />
+                <pre><code class="bash">
+    layouts/
+        simple/
+            simple.layout.inc
+            preview.png
+            simple-layout.tpl.php
+                </code></pre>
+            </section>
+            <section>
+                <h3><code>simple.layout.inc</code></h3>
+                <pre><code class="bash">
+    name = Simple
+    description = A simple 3 column layout.
+    preview = preview.png
+    template = simple-layout
+
+    regions[header]         = Header
+    regions[navigation]     = Navigation bar
+    regions[highlighted]    = Highlighted
+    regions[help]           = Help
+    regions[content]        = Content
+    regions[sidebar_first]  = First sidebar
+    regions[sidebar_second] = Second sidebar
+    regions[footer]         = Footer
+
+    stylesheets[all][] = css/layouts/simple/simple.layout.css
+                </code></pre>
+            </section>
+            <section>
+                <h3><code>preview.png</code></h3>
+                <br />
+                <img src="images/layout-preview.png">
+            </section>
+            <section>
+                <h3><code>simple-layout.tpl.php</code></h3>
+                <pre><code class="html">
+    <div class="l-page">
+        <header class="l-header" role="banner">
+            &lt;?php print render($page['header']); ?>
+        </header>
+        <div class="l-main">
+            <div class="l-content" role="main">
+                &lt;?php print render($page['content']); ?>
+            </div>
+        </div>
+
+        <footer class="l-footer" role="contentinfo">
+            &lt;?php print render($page['footer']); ?>
+        </footer>
+    </div>
+                </code></pre>
+            </section>
+            <section>
+                <h3>Example: Embedded Layout</h3>
+                <br />
+                <pre><code class="bash">
+    layouts/
+        ebedded/
+            embedded.layout.inc
+            embedded-layout.tpl.php
+                </code></pre>
+            </section>
+            <section>
+                <h3><code>embedded.layout.inc</code></h3>
+                <pre><code class="bash">
+    name = Embedded
+    description = Display site in an embedded mode.
+    template = embedded-layout
+
+    regions[content] = Content
+
+    stylesheets[all][] = css/layouts/ebedded/embedded.layout.css
+                </code></pre>
+            </section>
+            <section>
+                <h3><code>embedded-layout.tpl.php</code></h3>
+                <pre><code class="html">
+    &lt;?php print render($page['messages']); ?>
+    &lt;?php print render($page['content']); ?>
+                </code></pre>
+            </section>
+            <section>
+                <h3>Contextually Switching Layouts</h3>
+            <pre><code class="php">
+    /**
+    * Implements hook_omega_layout_alter().
+    */
+    function hook_omega_layout_alter(&$layout) {
+      if (isset($_GET['embedded'] && $_GET['embedded'])) {
+        $layout = 'embedded';
+      }
+    }
+            </code></pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Development Extention</h2>
+                <h5>Theming Powertools</h5>
+            </section>
+            <section>
+                <h3>Development Extention</h3>
+                <br />
+                <ul>
+                    <li>Rebuild theme registry</li>
+                    <li class="fragment">Rebuild CSS and JS aggregates</li>
+                    <li class="fragment">Browser width indicator</li>
+                    <li class="fragment">Livereload</li>
+                    <li class="fragment">Region demo</li>
+                </ul>
+                <aside class="notes">
+                    <ul>
+                        <li>Magic</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <h4>Region Demo</h4>
+                <br />
+                <img src="images/omega-region-demo.png" />
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Compatability Extention</h2>
+            </section>
+            <section>
+                <h3>Compatability Extention</h3>
+                <br />
+                <ul>
+                    <li>Conditional <code>&lt;html&gt;</code> classes</li>
+                    <li class="fragment">Customisible viewport metatag</li>
+                    <li class="fragment">Chromeframe</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Assets Extention</h2>
+            </section>
+            <section>
+                <h3>Assets Extention</h3>
+                <br />
+                <ul>
+                    <li>Move JS files to the footer</li>
+                    <li class="fragment">Exclude JS files</li>
+                    <li class="fragment">Exclude CSS files</li>
+                    <li class="fragment">Polyfills</li>
+                    <li class="fragment">Goodies: Discardable Messages</li>
+                </ul>
+                <aside class="notes">
+                    <ul>
+                        <li>Wildcards</li>
+                    </ul>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Autoloaded Preprocess, Process and Theme Functions</h2>
+                <h5>Take control of template.php</h5>
+            </section>
+            <section>
+                <h3>Adding a Preprocess Function</h3>
+                <ol>
+                    <li class="fragment">Create <code>[theme-hook].preprocess.inc</code> file in preprocess folder</li>
+                    <li class="fragment">Add preprocess function to the newly created <code>.inc</code> file, using the normal naming conventions.</li>
+                    <li class="fragment">Behold a clean, managable <code>template.php</code> file</li>
+                </ol>
+            </section>
+            <section>
+                <h3>Example: <code>hook_preprocess_block()</code></h3>
+                <p>The design calls for some alternate block styling:</p>
+                <pre><code class="css">
+    .block {
+      // Some Styles
+    }
+    .block--system-navigation  {
+      // Some Styles
+    }
+    .block--search-form,
+    .block--system-powered-by {
+      // Some Styles
+    }
+                </code></pre>
+            </section>
+            <section>
+                <h4>Example: <code>hook_preprocess_block()</code></h4>
+                <pre><code class="css">
+    .block {
+      // Some Styles
+    }
+    .block--primary {
+      // Some Styles
+    }
+    .block--minimal {
+      // Some Styles
+    }
+                </code></pre>
+            </section>
+            <section>
+                <h4>Example: <code>hook_preprocess_block()</code></h4>
+                <pre class="squeeze"><code class="php">
+    /**
+     * Implements hook_preprocess_TEMPLATE().
+     */
+    function hook_preprocess_block(&$variables) {
+      $block = $variables['block'];
+      $name = $block->module . '_' . $block->delta;
+
+      switch ($name) {
+        case 'system_navigation':
+          $variables['attributes_array']['class'][] = 'block--primary';
+          break;
+        case 'search_form':
+        case 'system_powered-by':
+          $variables['attributes_array']['class'][] = 'block--minimal';
+          break;
+      }
+    }
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Drush Integration</h2>
+            </section>
+            <section>
+                <h3><code>omega-wizard</code></h3>
+<pre class="squeeze fragment"><code class="bash">$ drush omega-wizard</code></pre>
+<pre class="squeeze fragment"><code class="bash">Please enter the name of the new sub-theme [Omega Subtheme]: Test Theme</code></pre>
+<pre class="squeeze fragment"><code class="bash">Please enter a machine-readable name for your new theme [test_theme]: custom</code></pre>
+<pre class="squeeze fragment"><code class="bash">
+Please choose a base theme for your new theme
+  [0]  :  Cancel
+  [1]  :  Omega
+</code></pre>
+<pre class="squeeze fragment"><code class="bash">
+Please choose a starterkit for your new theme
+  [0]  :  Cancel
+  [1]  :  Default (Provided by Omega)
+  [2]  :  Extended (Provided by Omega)
+</code></pre>
+<pre class="squeeze fragment"><code class="bash">
+Please choose a destination. This is where your sub-theme will be placed
+  Please choose a destination type.
+    [0]  :  Cancel
+    [1]  :  Site (e.g. 'all' or 'example.com')
+    [2]  :  Installation profile
+    [3]  :  Parent theme
+</code></pre>
+            </section>
+            <section>
+                <h3><code>omega-wizard</code></h3>
+<pre class="squeeze"><code class="bash">
+    Please choose a site.
+      [0]  :  Cancel
+      [1]  :  all
+</code></pre>
+<pre class="squeeze fragment"><code class="bash">Do you want to keep the starterkit`s readme files? (y/n): n</code></pre>
+<pre class="squeeze fragment"><code class="bash">Do you want to enable your new theme? (y/n): y</code></pre>
+<pre class="squeeze fragment"><code class="bash">Do you want to make your new theme the default theme? (y/n): y</code></pre>
+<pre class="squeeze fragment"><code class="bash">You have successfully created the theme Test Theme (custom) in sites/all/themes.</code></pre>
+            </section>
+            <section>
+                <h3><code>omega-guard</code></h3>
+<pre class="squeeze fragment"><code class="bash">$ (sudo) gem install bundler</code></pre>
+<pre class="squeeze fragment"><code class="bash">$ bundle install</code></pre>
+<pre class="squeeze fragment"><code class="bash">$ drush omega-guard</code></pre>
+<pre class="squeeze fragment"><code class="bash">
+Which theme do you want to run Guard for?
+  [0]  :  Cancel
+  [1]  :  Test Theme (Subtheme of Omega)
+  [2]  :  Omega
+</code></pre>
+<pre class="squeeze fragment"><code class="bash">
+Compilation took 0.214s
+22:14:16 - INFO - Guard::Compass is watching at your stylesheets.
+22:14:16 - INFO - LiveReload is waiting for a browser to connect.
+22:14:16 - INFO - Guard is now watching at 'sites/all/themes/custom'
+[1] guard(main)>
+</code></pre>
+            </section>
+            <section>
+                <h3><code>omega-export & omega-revert</code></h3>
+<pre class="squeeze fragment"><code class="bash">drush omega-export</code></pre>
+<pre class="squeeze fragment"><code class="bash">
+Which theme do you want to export the theme settings for?
+  [0]  :  Cancel
+  [1]  :  Test Theme (Subtheme of Omega)
+  [2]  :  Omega
+</code></pre>
+<pre class="squeeze fragment"><code class="bash">The theme settings for the Ohm theme have been exported to the .info file.</code></pre>
+<pre class="squeeze fragment"><code class="bash">drush omega-revert</code></pre>
+<pre class="squeeze fragment"><code class="bash">
+    Which theme do you want to revert the theme settings for?
+    [0]  :  Cancel
+    [1]  :  Test Theme (Subtheme of Omega)
+    [2]  :  Omega
+</code></pre>
+<pre class="squeeze fragment"><code class="bash">The theme settings for the Ohm theme have been reverted.</code></pre>
+            </section>
+        </section>
+        <section>
+            <h2>What's next for Omega 4?</h2>
+            <br />
+            <ul>
+                <li class="fragment"><strong>Thorough documentation</strong></li>
+                <li class="fragment">Panels Integration</li>
+                <li class="fragment">Further clean up contrib module markup and CSS (Views, Panels, etc.)</li>
+                <li class="fragment">Ohm demonstration subtheme</li>
+            </ul>
+        </section>
+        <section>
+            <p>[Image of Ohm]</p>
+        </section>
+        <section>
+            <h2>Questions?</h2>
+        </section>
+   </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+    Reveal.initialize({
+        controls:false,
+        progress:true,
+        history:true,
+        center:true,
+
+        theme:'custom', // available themes are in /css/theme
+        transition:Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies:[
+            { src:'lib/js/classList.js', condition:function () {
+                return !document.body.classList;
+            } },
+            { src:'plugin/markdown/marked.js', condition:function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src:'plugin/markdown/markdown.js', condition:function () {
+                return !!document.querySelector('[data-markdown]');
+            } },
+            { src:'plugin/highlight/highlight.js', async:true, callback:function () {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src:'plugin/zoom-js/zoom.js', async:true, condition:function () {
+                return !!document.body.classList;
+            } },
+            { src:'plugin/notes/notes.js', async:true, condition:function () {
+                return !!document.body.classList;
+            } }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
