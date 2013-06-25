@@ -36,7 +36,7 @@ $mainFont: $pt-sans;
 $headingColor: $mid-blue;
 $headingFont: $maven-pro;
 $headingWeight: 700;
-$headingTextShadow: 1px 1px 1px #000;
+$headingTextShadow: none;
 $backgroundColor: $light-grey;
 $linkColor: $orange;
 $linkColorHover: $dark-blue;
@@ -68,7 +68,6 @@ body {
 /*********************************************
  * HEADERS
  *********************************************/
-
 .reveal h1,
 .reveal h2,
 .reveal h3,
@@ -91,11 +90,25 @@ body {
   text-shadow: $heading1TextShadow;
 }
 
+/*********************************************
+ * CODE
+ *********************************************/
+.reveal code {
+  text-transform: none;
+}
+
+.reveal pre {
+  width: 100%;
+}
+
+pre.squeeze {
+  line-height: 1.1em;
+  font-size: 0.5em;
+}
 
 /*********************************************
  * LINKS
  *********************************************/
-
 .reveal a:not(.image) {
   color: $linkColor;
   line-height: inherit;
@@ -120,9 +133,22 @@ body {
 }
 
 /*********************************************
+ * LISTS
+ *********************************************/
+.reveal li {
+  margin-bottom: 0.3em;
+}
+
+/*********************************************
+ * BLOCKQUOTE
+ *********************************************/
+.reveal blockquote {
+  width: 100%;
+}
+
+/*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
-
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
   border-right-color: $linkColor;
@@ -163,7 +189,6 @@ body {
 /*********************************************
  * PROGRESS BAR
  *********************************************/
-
 .reveal .progress {
   background: rgba(0,0,0,0.2);
 }
