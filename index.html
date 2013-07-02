@@ -53,45 +53,75 @@
                     <ul>
                         <li>Manchester</li>
                         <li>Large enterprise Drupal projects.</li>
-                        <li>Use Omega 4 on many production sites.</li>
+                        <li>Use Omega 4 exclusively, on many production sites.</li>
                     </ul>
                 </aside>
             </section>
         </section>
         <section>
-            <h2>Sass & Compass</h2>
-            <br />
-            <ul>
-                <li class="fragment">SCSS vs. Indented Syntax</li>
-                <li class="fragment">Partials</li>
-                <li class="fragment">Compass</li>
-                <li class="fragment">Compass Extensions</li>
-                <li class="fragment"><code>config.rb</code> and <code>compass watch</code></li>
-            </ul>
-            <aside class="notes">
+            <section>
+                <h2>Sass & Compass</h2>
+            </section>
+            <section>
+                <h3>Partials</h3>
+                <pre><code class="bash">
+    css/
+        styles.css
+    sass/
+        styles.scss
+        _base.scss
+        _layout.scss
+        _components.scss
+        components/
+            _blocks.scss
+            _nodes.scss
+                </code></pre>
+            </section>
+            <section>
+                <h3>Compiling</h3>
+                <br />
+                <pre><code class="bash">
+    # Without Compass
+    $ sass --watch style.scss:style.css
+                </code></pre>
+                <pre><code class="bash">
+    # With Compass
+    $ compass watch
+                </code></pre>
+            </section>
+            <section>
+                <h3>Language Features</h3>
                 <ul>
-                    <li>Superset of CSS</li>
-                    <li>Mixins, functions, variables and nesting.</li>
-                    <li>Susy, Singualrity, Breakpoint, Globbing, Toolkit</li>
+                    <li>Variables</li>
+                    <li>Mixins</li>
+                    <li>Extends</li>
+                    <li>Functions</li>
+                    <li>Nesting</li>
                 </ul>
-            </aside>
+            </section>
+            <section>
+                <h3>Compass Extentions</h3>
+                <br />
+                <p>Breakpoint, Susy, Singularity, Globbing, Toolkit and many more!</p>
+            </section>
         </section>
         <section>
-            <h2>SMACSS</h2>
-            <br />
-            <ul>
-                <li class="fragment">Base Styles</li>
-                <li class="fragment">Layout</li>
-                <li class="fragment">Modules/Components</li>
-            </ul>
-            <aside class="notes">
-                <ul>
-                    <li>Work least specific to most specific.</li>
-                    <li>Drupal Styleguide module.</li>
-                    <li>Components should be encapsulated - work anywhere in their own right.</li>
-                    <li>Subcomponent, modifiers.</li>
-                </ul>
-            </aside>
+            <section>
+                <h2>SMACSS</h2>
+                <small>Scalable and Modular Architecture for CSS</small>
+            </section>
+            <section>
+                <h3>Base Styles</h3>
+                <p>Define general, default styling to be applied everywhere.</p>
+            </section>
+            <section>
+                <h3>Layout Styles</h3>
+                <p>Separate major (layout) and minor (component) page elements.</p>
+            </section>
+            <section>
+                <h3>Modules/Components</h3>
+                <p>A component should be styled based on <strong>what it is</strong> rather than <strong>where it is</strong>.</p>
+            </section>
         </section>
         <section>
             <h2>BEM</h2>
@@ -112,11 +142,11 @@
                 <h2>Omega 3</h2>
                 <br />
                 <ul>
-                    <li class="fragment">UI is used to configure layouts</li>
-                    <li class="fragment">HTML5 or XHTML starterkits</li>
-                    <li class="fragment">Predefined breakpoints and stylesheets</li>
-                    <li class="fragment">Dependency on Omega Tools module</li>
-                    <li class="fragment">Delta and Context recommended</li>
+                    <li class="fragment">UI is used to configure layouts.</li>
+                    <li class="fragment">HTML5 or XHTML starterkits.</li>
+                    <li class="fragment">Predefined breakpoints and stylesheets.</li>
+                    <li class="fragment">Dependency on Omega Tools module.</li>
+                    <li class="fragment">Delta and Context recommended.</li>
                 </ul>
                 <aside class="notes">
                     <ul>
@@ -131,7 +161,7 @@
                 <ul>
                     <li class="fragment">Layouts are defined in code</li>
                     <li class="fragment">HTML5 out of the box</li>
-                    <li class="fragment">No predefined breakpoints and or stylesheets</li>
+                    <li class="fragment">No predefined breakpoints or stylesheets</li>
                     <li class="fragment">Removed the dependency on Omega Tools</li>
                     <li class="fragment">Delta no longer needed or recommended</li>
                 </ul>
@@ -263,14 +293,13 @@
             </section>
             <section>
                 <h3><code>embedded.layout.inc</code></h3>
+                <br />>
                 <pre><code class="bash">
     name = Embedded
     description = Display site in an embedded mode.
     template = embedded-layout
 
     regions[content] = Content
-
-    stylesheets[all][] = css/layouts/embedded/embedded.layout.css
                 </code></pre>
             </section>
             <section>
@@ -347,7 +376,6 @@
                     <li class="fragment">Exclude JS files</li>
                     <li class="fragment">Exclude CSS files</li>
                     <li class="fragment">Polyfills</li>
-                    <li class="fragment">Goodies: Discardable Messages</li>
                 </ul>
                 <aside class="notes">
                     <ul>
@@ -506,17 +534,30 @@ Which theme do you want to export the theme settings for?
             <h2>What's next for Omega 4?</h2>
             <br />
             <ul>
-                <li class="fragment"><strong>Thorough documentation</strong></li>
+                <li class="fragment">Thorough documentation</li>
                 <li class="fragment">Panels Integration</li>
                 <li class="fragment">Further clean up contrib module markup and CSS (Views, Panels, etc.)</li>
                 <li class="fragment">Ohm demonstration subtheme</li>
             </ul>
         </section>
         <section>
-            <p>[Image of Ohm]</p>
+            <img src="images/ohm.png" />
+        </section>
+        <section>
+            <h3>Links</h3>
+            <br />
+            <ul>
+                <li><a href="http://smacss.com">SMACSS - Jonathan Snook  <br /><small>(smacss.com)</small></a></li>
+                <li><a href="http://csswizardry.com/2012/11/code-smells-in-css/">Code Smells in CSS - Harry Roberts  <br /><small>(csswizardry.com/2012/11/code-smells-in-css/)</small></a></li>
+                <li><a href="http://drupal.org/node/1887918">Drupal 8 CSS Coding Standards  <br /><small>(drupal.org/node/1887918)</small></a></li>
+                <li><a href="http://drupal.org/project/issues/omega">Omega Issue Queue  <br /><small>(drupal.org/project/issues/omega)</small></a></li>
+                <li><a href="http://csswizardry.com/2012/07/video-breaking-good-habits-front-trends-2012/">Breaking Good Habits - Harry Roberts <br /><small>(csswizardry.com/2012/07/video-breaking-good-habits-front-trends-2012)</small></a></li>
+            </ul>
         </section>
         <section>
             <h2>Questions?</h2>
+            <br />
+            <p><a href="http://splatio.github.io/omega-4-slides">splatio.github.io/omega-4-slides</a></p>
         </section>
    </div>
 </div>
