@@ -91,14 +91,88 @@
             </section>
             <section>
                 <h3>Language Features</h3>
-                <br />
-                <ul>
-                    <li>Variables</li>
-                    <li>Mixins</li>
-                    <li>Extends</li>
-                    <li>Functions</li>
-                    <li>Nesting</li>
-                </ul>
+            </section>
+            <section>
+                <h4>Variables</h4>
+                <pre><code class="css">
+    # Sass
+    $base-font-size: 14px;
+
+    html {
+        font-size: $base-font-size;
+    }
+                </code></pre>
+                <pre><code class="css">
+    # Compiled CSS
+    html {
+        font-size: 14px;
+    }
+                </code></pre>
+            </section>
+            <section>
+                <h4>Nesting</h4>
+                <pre><code class="css">
+    # Sass
+    .some-selector {
+        .a-child {
+            // Some Styles
+        }
+    }
+                </code></pre>
+                <pre><code class="css">
+    # Compiled CSS
+    .some-selector .some-child {
+        // Some Styles
+    }
+                </code></pre>
+            </section>
+            <section>
+                <h4>Mixins</h4>
+                <pre><code class="css">
+    # Sass
+    @mixin font-size($font-size){
+        font-size: $font-size;
+        font-size: ($font-size / $base-font-size)*1rem;
+    }
+
+    .some-selector {
+        @include font-size(18px);
+    }
+                </code></pre>
+                <pre><code class="css">
+    # Compiled CSS
+    .some-selector {
+        font-size: 18px;
+        font-size: 1.5rem;
+    }
+                </code></pre>
+            </section>
+            <section>
+                <h4>Extends</h4>
+                <pre><code class="css">
+    # Sass
+    %island {
+        display: block;
+        margin-bottom: $vert-spacing-unit;
+        padding: $vert-spacing-unit $horz-spacing-unit;
+    }
+
+    .some-block {
+        @extend %island;
+    }
+    .some-other-block {
+        @extend %island;
+    }
+                </code></pre>
+                <pre><code class="css">
+    # Compiled CSS
+    .some-block,
+    .some-other-block {
+        display: block;
+        margin-bottom: 20px;
+        padding: 20px 18px;
+    }
+                </code></pre>
             </section>
             <section>
                 <h3>Compass Extensions</h3>
