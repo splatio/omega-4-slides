@@ -41,21 +41,9 @@
                 <br />
                 <h4>twitter: <a href="http://twitter.com/splatio_">@splatio_</a></h4>
                 <h4>drupal.org: <a href="http://drupal.org/user/1012210">splatio</a></h4>
-                <aside class="notes">
-                    <ul>
-                        <li>Drupal Developer - Frontend and Backend</li>
-                    </ul>
-                </aside>
             </section>
             <section>
                 <img src="images/cti-digital-logo.png" />
-                <aside class="notes">
-                    <ul>
-                        <li>Manchester</li>
-                        <li>Large enterprise Drupal projects.</li>
-                        <li>Use Omega 4 exclusively, on many production sites.</li>
-                    </ul>
-                </aside>
             </section>
         </section>
         <section>
@@ -91,93 +79,20 @@
             </section>
             <section>
                 <h3>Language Features</h3>
-            </section>
-            <section>
-                <h4>Variables</h4>
-                <pre><code class="css">
-    # Sass
-    $base-font-size: 14px;
-
-    html {
-        font-size: $base-font-size;
-    }
-                </code></pre>
-                <pre><code class="css">
-    # Compiled CSS
-    html {
-        font-size: 14px;
-    }
-                </code></pre>
-            </section>
-            <section>
-                <h4>Nesting</h4>
-                <pre><code class="css">
-    # Sass
-    .some-selector {
-        .a-child {
-            // Some Styles
-        }
-    }
-                </code></pre>
-                <pre><code class="css">
-    # Compiled CSS
-    .some-selector .some-child {
-        // Some Styles
-    }
-                </code></pre>
-            </section>
-            <section>
-                <h4>Mixins</h4>
-                <pre><code class="css">
-    # Sass
-    @mixin font-size($font-size){
-        font-size: $font-size;
-        font-size: ($font-size / $base-font-size)*1rem;
-    }
-
-    .some-selector {
-        @include font-size(18px);
-    }
-                </code></pre>
-                <pre><code class="css">
-    # Compiled CSS
-    .some-selector {
-        font-size: 18px;
-        font-size: 1.5rem;
-    }
-                </code></pre>
-            </section>
-            <section>
-                <h4>Extends</h4>
-                <pre><code class="css">
-    # Sass
-    %island {
-        display: block;
-        margin-bottom: $vert-spacing-unit;
-        padding: $vert-spacing-unit $horz-spacing-unit;
-    }
-
-    .some-block {
-        @extend %island;
-    }
-    .some-other-block {
-        @extend %island;
-    }
-                </code></pre>
-                <pre><code class="css">
-    # Compiled CSS
-    .some-block,
-    .some-other-block {
-        display: block;
-        margin-bottom: 20px;
-        padding: 20px 18px;
-    }
-                </code></pre>
+                <br />
+                <ul>
+                    <li>Variables</li>
+                    <li class="fragment">Nesting</li>
+                    <li class="fragment">Mixins</li>
+                    <li class="fragment">Extends</li>
+                </ul>
             </section>
             <section>
                 <h3>Compass Extensions</h3>
                 <br />
                 <p>Breakpoint, Susy, Singularity, Globbing, Toolkit and many more!</p>
+                <br />
+                <p>Omega includes <strong>Bundler</strong> and a <strong>Gemfile</strong> to manage ruby dependencies.</p>
             </section>
         </section>
         <section>
@@ -195,7 +110,7 @@
             </section>
             <section>
                 <h3>Modules/Components</h3>
-                <p>A component should be styled based on <strong>what it is</strong> rather than <strong>where it is</strong>.</p>
+                <p>A minor page element to be placed within a layout area.</p>
             </section>
         </section>
         <section>
@@ -217,7 +132,7 @@
                 <h2>Omega 3</h2>
                 <br />
                 <ul>
-                    <li class="fragment">UI is used to configure layouts.</li>
+                    <li>UI is used to configure layouts.</li>
                     <li class="fragment">HTML5 or XHTML starterkits.</li>
                     <li class="fragment">Predefined breakpoints and stylesheets.</li>
                     <li class="fragment">Dependency on Omega Tools module.</li>
@@ -234,7 +149,7 @@
                 <h2>Omega 4</h2>
                 <br />
                 <ul>
-                    <li class="fragment">Layouts are defined in code</li>
+                    <li>Layouts are defined in code</li>
                     <li class="fragment">HTML5 out of the box</li>
                     <li class="fragment">No predefined breakpoints or stylesheets</li>
                     <li class="fragment">Removed the dependency on Omega Tools</li>
@@ -322,6 +237,7 @@
         <header class="l-header" role="banner">
             &lt;?php print render($page['header']); ?>
         </header>
+
         <div class="l-main">
             <div class="l-content" role="main">
                 &lt;?php print render($page['content']); ?>
@@ -346,7 +262,7 @@
             </section>
             <section>
                 <h3><code>embedded.layout.inc</code></h3>
-                <br />>
+                <br />
                 <pre><code class="bash">
     name = Embedded
     description = Display site in an embedded mode.
@@ -357,6 +273,7 @@
             </section>
             <section>
                 <h3><code>embedded-layout.tpl.php</code></h3>
+                <br />
                 <pre><code class="html">
     &lt;?php print render($page['messages']); ?>
     &lt;?php print render($page['content']); ?>
@@ -439,13 +356,81 @@
         </section>
         <section>
             <section>
+                <h4>Example:</h4>
+                <pre><code class="css">
+    .my-component {
+        margin-bottom: 1em;
+        border: 1px solid red;
+        color: green;
+
+        @include breakpoint(800px, true) {
+            padding: 20px;
+        }
+    }
+                </code></pre>
+            </section>
+            <section>
+                <h4>Example:</h4>
+                <pre><code class="css">
+    // Compiled CSS with media queries.
+    .my-component {
+        margin-bottom: 1em;
+        border: 1px solid red;
+        color: green;
+    }
+    @media screen and (min-width: 800px) {
+        .my-component {
+            padding: 20px;
+        }
+    }
+                </code></pre>
+                <pre><code class="css">
+    // Compiled fallback CSS
+    .my-component {
+        margin-bottom: 1em;
+        border: 1px solid red;
+        color: green;
+    }
+    .my-component {
+        padding: 20px;
+    }
+                </code></pre>
+            </section>
+            <section>
+                <h2>No Query Fallbacks</h2>
+            </section>
+            <section>
+                <h4>Example:</h4>
+                <pre><code class="css">
+    // Use breakpoint
+    @import "breakpoint";
+                </code></pre>
+                <pre><code class="css">
+    $breakpoint-no-queries: true;
+    $breakpoint-no-query-fallbacks: true;
+
+    @import "styles";
+                </code></pre>
+            </section>
+            <section>
+                <h3>Including fallback stylesheets</h3>
+                <br />
+                <ol>
+                    <li>Ensure the generated CSS file is named <code>*.no-query.css</code></li>
+                    <li class="fragment">Include the file, in the <code>.info</code> file, or using <code>drupal_add_css()</code></li>
+                    <li class="fragment">Forget Old IE!</li>
+                </ol>
+            </section>
+        </section>
+        <section>
+            <section>
                 <h2>Autoloaded Preprocess, Process and Theme Functions</h2>
                 <h5>Take control of template.php</h5>
             </section>
             <section>
                 <h3>Adding a Preprocess Function</h3>
                 <ol>
-                    <li class="fragment">Create <code>[theme-hook].preprocess.inc</code> file in preprocess folder</li>
+                    <li>Create <code>[theme-hook].preprocess.inc</code> file in preprocess folder</li>
                     <li class="fragment">Add preprocess function to the newly created <code>.inc</code> file, using the normal naming conventions.</li>
                     <li class="fragment">Behold a clean, managable <code>template.php</code> file</li>
                 </ol>
@@ -545,25 +530,6 @@ Please choose a destination. This is where your sub-theme will be placed
 <pre class="squeeze fragment"><code class="bash">You have successfully created the theme Test Theme (custom) in sites/all/themes.</code></pre>
             </section>
             <section>
-                <h3><code>omega-guard</code></h3>
-<pre class="squeeze fragment"><code class="bash">$ (sudo) gem install bundler</code></pre>
-<pre class="squeeze fragment"><code class="bash">$ bundle install</code></pre>
-<pre class="squeeze fragment"><code class="bash">$ drush omega-guard</code></pre>
-<pre class="squeeze fragment"><code class="bash">
-Which theme do you want to run Guard for?
-  [0]  :  Cancel
-  [1]  :  Test Theme (Subtheme of Omega)
-  [2]  :  Omega
-</code></pre>
-<pre class="squeeze fragment"><code class="bash">
-Compilation took 0.214s
-22:14:16 - INFO - Guard::Compass is watching at your stylesheets.
-22:14:16 - INFO - LiveReload is waiting for a browser to connect.
-22:14:16 - INFO - Guard is now watching at 'sites/all/themes/custom'
-[1] guard(main)>
-</code></pre>
-            </section>
-            <section>
                 <h3><code>omega-export & omega-revert</code></h3>
 <pre class="squeeze fragment"><code class="bash">drush omega-export</code></pre>
 <pre class="squeeze fragment"><code class="bash">
@@ -584,26 +550,71 @@ Which theme do you want to export the theme settings for?
             </section>
         </section>
         <section>
-            <h2>What's next for Omega 4?</h2>
-            <br />
-            <ul>
-                <li class="fragment">Thorough documentation</li>
-                <li class="fragment">Panels Integration</li>
-                <li class="fragment">Further clean up contrib module markup and CSS (Views, Panels, etc.)</li>
-                <li class="fragment">Ohm demonstration subtheme</li>
-            </ul>
+            <section>
+                <h2>Grunt & Bower</h2>
+                <br />
+                <img src="images/grunt-bower.png" />
+            </section>
+            <section>
+                <h2>Grunt</h2>
+                <br />
+                <ul>
+                    <li>Command line task runner</li>
+                    <li class="fragment">Automates common development and build tasks</li>
+                    <li class="fragment">Omega includes a Gruntfile in the default startkit</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Bower</h2>
+                <br />
+                <ul>
+                    <li>Frontend dependency management tool</li>
+                    <li class="fragment">Dependencies listed in a <code>bower.json</code> file</li>
+                    <li class="fragment">Omega's dependencies <em>can</em> be managed through Bower</li>
+                    <li class="fragment">Add any additional theme dependencies to the <code>bower.json</code> file</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <img src="images/ohm.png" />
+            <section>
+                <h2>The Ohm Subtheme</h2>
+                <img src="images/ohm.png" />
+            </section>
+            <section>
+                <h3>The Ohm Subtheme</h3>
+                <ul>
+                    <li>Demonstrates best practice for building Drupal themes with Omega 4</li>
+                    <li>Frequently updated as best practice moves on</li>
+                    <li>Should <strong>NOT</strong> be used in production, directly or as a base theme!</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Panels Integration</h2>
+                <div style="background: #FFF">
+                    <img src="images/panels-1.png" />
+                    <img src="images/panels-2.png" />
+                </div>
+            </section>
+        </section>
+        <section>
+            <h2>The Future: <br />Omega 5.x</h2>
+            <br />
+            <ul>
+                <li>Drupal 8 Version Omega</li>
+                <li>Many Omega features fixed upstream in Drupal 8</li>
+                <li>Drupal 8 "backports" also fixed upstream</li>
+            </ul>
         </section>
         <section>
             <h3>Links</h3>
             <br />
             <ul>
+                <li><a href="http://www.youtube.com/watch?v=CmTuvzbPduI">Omega 4.x 3 Hour Masterclass <br /><small>(youtube.com/watch?v=CmTuvzbPduI)</small></a></li>
                 <li><a href="http://smacss.com">SMACSS - Jonathan Snook  <br /><small>(smacss.com)</small></a></li>
                 <li><a href="http://csswizardry.com/2012/11/code-smells-in-css/">Code Smells in CSS - Harry Roberts  <br /><small>(csswizardry.com/2012/11/code-smells-in-css/)</small></a></li>
                 <li><a href="http://drupal.org/node/1887918">Drupal 8 CSS Coding Standards  <br /><small>(drupal.org/node/1887918)</small></a></li>
-                <li><a href="http://drupal.org/project/issues/omega">Omega Issue Queue  <br /><small>(drupal.org/project/issues/omega)</small></a></li>
                 <li><a href="http://csswizardry.com/2012/07/video-breaking-good-habits-front-trends-2012/">Breaking Good Habits - Harry Roberts <br /><small>(csswizardry.com/2012/07/video-breaking-good-habits-front-trends-2012)</small></a></li>
             </ul>
         </section>
